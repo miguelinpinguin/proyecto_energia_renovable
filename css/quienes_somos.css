@@ -1,0 +1,250 @@
+body{
+    padding-top: 2rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+}
+}
+.mb-5 {
+    text-align: center;
+}
+
+.icon-list {
+    padding-left: 0;
+    list-style: none;
+}
+.icon-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: .25rem;
+}
+.icon-list li::before {
+    display: block;
+    flex-shrink: 0;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: .5rem;
+    content: "";
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+}
+
+.contenedor-padre {
+    background-image: url(/img/solar.jpg);
+    border-radius: 10px;
+    min-height: 450px;
+    background-repeat:no-repeat;
+    background-size: cover; /*IMPORTANTE: CAMBIAR LA IMAGEN POR UNA QUE SE DISTINGA MEJOR Y SEA MAS ADECUADA PARA EL CONTENEDOR */
+}
+
+.title-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            padding-left: 50px;
+        }
+
+        .title {
+            font-size: 24px;
+            color: #2c3e50;
+            font-weight: 300;
+        }
+
+        .circles-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .circle-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .circle-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .mision {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .vision {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .trayectoria {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .valores {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .info-panel {
+            position: absolute;
+            left: 50%;
+            top: 140%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            width: 280px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 5px solid;
+            z-index: 10;
+        }
+
+        .circle-item:hover .info-panel {
+            opacity: 1;
+            visibility: visible;
+            top: 130px;
+        }
+
+        .info-panel.mision-info {
+            border-left-color: #667eea;
+        }
+
+        .info-panel.vision-info {
+            border-left-color: #f5576c;
+        }
+
+        .info-panel.trayectoria-info {
+            border-left-color: #4facfe;
+        }
+
+        .info-panel.valores-info {
+            border-left-color: #43e97b;
+        }
+
+        .info-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-description {
+            color: #5a6c7d;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+.info-points {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-points li {
+            color: #34495e;
+            font-size: 13px;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .info-points li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+
+        .circle-item:hover .circle {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .circle-item:hover .info-panel {
+            animation: slideIn 0.4s ease-out;
+        }
+
+        /* Responsive design para layout horizontal */
+        @media (max-width: 768px) {
+            .circles-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .circle-item {
+                max-width: 100%;
+            }
+            
+            .info-panel {
+                position: relative;
+                top: 20px;
+                transform: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            .circle-item:hover .info-panel {
+                top: 20px;
+                transform: none;
+            }
+        }
+
+.h1 {
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+

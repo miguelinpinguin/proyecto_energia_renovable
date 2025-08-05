@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Energía Renovable</title>
+    <link rel="stylesheet" href="/css/calculadora.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌱 Calculadora de Energía Renovable</h1>
+            <p>Calcula el porcentaje de energía renovable en tu consumo eléctrico</p>
+        </div>
+
+        <div class="form-container">
+            <form id="renewableForm">
+                <div class="section">
+                    <h2><span class="icon">⚡</span>Consumo Eléctrico Total</h2>
+                    <div class="form-group">
+                        <label for="totalConsumption">Consumo eléctrico mensual (kWh):</label>
+                        <input type="number" id="totalConsumption" step="0.01" min="0" required placeholder="Ej: 350">
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><span class="icon">🔋</span>Capacidad Instalada de Energías Renovables</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="solar">Energía Solar (kW):</label>
+                            <input type="number" id="solar" step="0.01" min="0" placeholder="Ej: 5.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="wind">Energía Eólica (kW):</label>
+                            <input type="number" id="wind" step="0.01" min="0" placeholder="Ej: 2.0">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hydro">Energía Hidroeléctrica (kW):</label>
+                            <input type="number" id="hydro" step="0.01" min="0" placeholder="Ej: 1.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="geothermal">Energía Geotérmica (kW):</label>
+                            <input type="number" id="geothermal" step="0.01" min="0" placeholder="Ej: 3.0">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="biomass">Biomasa (kW):</label>
+                            <input type="number" id="biomass" step="0.01" min="0" placeholder="Ej: 1.0">
+                        </div>
+                        <div class="form-group">
+                            <label for="other">Otras renovables (kW):</label>
+                            <input type="number" id="other" step="0.01" min="0" placeholder="Ej: 0.5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><span class="icon">⚙️</span>Factores de Capacidad Promedio</h2>
+                    <p style="margin-bottom: 20px; color: #666; font-size: 0.9em;">
+                        Estos valores representan la eficiencia promedio de cada tecnología (% del tiempo que opera a capacidad máxima)
+                    </p>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="solarFactor">Factor Solar (%):</label>
+                            <input type="number" id="solarFactor" step="0.1" min="0" max="100" value="20" placeholder="15-25">
+                        </div>
+                        <div class="form-group">
+                            <label for="windFactor">Factor Eólico (%):</label>
+                            <input type="number" id="windFactor" step="0.1" min="0" max="100" value="35" placeholder="25-45">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hydroFactor">Factor Hidroeléctrico (%):</label>
+                            <input type="number" id="hydroFactor" step="0.1" min="0" max="100" value="45" placeholder="35-60">
+                        </div>
+                        <div class="form-group">
+                            <label for="geothermalFactor">Factor Geotérmico (%):</label>
+                            <input type="number" id="geothermalFactor" step="0.1" min="0" max="100" value="80" placeholder="70-90">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="biomassFactor">Factor Biomasa (%):</label>
+                            <input type="number" id="biomassFactor" step="0.1" min="0" max="100" value="70" placeholder="60-80">
+                        </div>
+                        <div class="form-group">
+                            <label for="otherFactor">Factor Otras (%):</label>
+                            <input type="number" id="otherFactor" step="0.1" min="0" max="100" value="40" placeholder="20-60">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">Calcular Porcentaje de Energía Renovable</button>
+            </form>
+
+            <div id="results" class="results">
+                <h2 style="text-align: center; margin-bottom: 20px;">📊 Resultados del Análisis</h2>
+                
+                <div class="percentage-circle" id="percentageCircle">
+                    <span class="percentage-text" id="percentageText">0%</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Consumo Total Mensual:</span>
+                    <span class="result-value" id="totalConsumptionResult">0 kWh</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Capacidad Renovable Total:</span>
+                    <span class="result-value" id="totalCapacityResult">0 kW</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Producción Renovable Mensual:</span>
+                    <span class="result-value" id="renewableProductionResult">0 kWh</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Energía Renovable Consumida:</span>
+                    <span class="result-value" id="renewableConsumedResult">0 kWh</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Porcentaje de Energía Renovable:</span>
+                    <span class="result-value" id="renewablePercentageResult">0%</span>
+                </div>
+
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">🔋 Desglose por Fuente de Energía</h3>
+                <div class="energy-sources" id="energySources">
+                    <!-- Se llenará dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/calculadora.js"></script>
+</body>
+</html>
